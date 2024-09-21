@@ -1,14 +1,13 @@
 <script setup>
-
+ import OrderList from '../components/orders/OrderList.vue';
 </script>
 
 <template>
-
   <div>
-    <h1>Home Orders</h1>
-  </div>
+    <OrderList />
     
- </template>
+  </div>
+</template>
 
 <style scoped>
 
