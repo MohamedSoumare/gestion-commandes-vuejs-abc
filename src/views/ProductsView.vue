@@ -1,19 +1,14 @@
 <script setup>
-import { ref } from 'vue'
-
-defineProps({
-  msg: String,
-})
-
-const count = ref(0)
+import ProductList from '../components/products/ProductList.vue';
 </script>
 
 <template>
   <div>
-    <h1>Home Products</h1>
+    <ProductList />
   </div>
 </template>
 
 <style scoped>
+
 
 </style>
