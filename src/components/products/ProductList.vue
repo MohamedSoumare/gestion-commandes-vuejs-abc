@@ -169,7 +169,7 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label class="form-label">Product Name</label>
-            <input type="text" class="form-control" v-model="selectedProduct.name">
+            <input type="text" class="form-control" v-model="selectedProduct.name" disabled>
           </div>
           <div class="col-md-6">
             <label class="form-label">Category</label>
