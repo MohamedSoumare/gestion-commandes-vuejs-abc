@@ -169,36 +169,39 @@
         <div class="row mb-3">
           <div class="col-md-6">
             <label class="form-label">Product Name</label>
-            <input type="text" class="form-control" v-model="selectedProduct.name" disabled>
+            <input type="text" class="form-control" v-model="selectedProduct.name">
           </div>
           <div class="col-md-6">
             <label class="form-label">Category</label>
-            <input type="text" class="form-control" v-model="selectedProduct.category" readonly>
+            <input type="text" class="form-control" v-model="selectedProduct.category">
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
             <label class="form-label">Price</label>
-            <input type="text" class="form-control" v-model="selectedProduct.price" readonly>
+            <input type="number" class="form-control" v-model="selectedProduct.price">
           </div>
           <div class="col-md-6">
             <label class="form-label">Stock Quantity</label>
-            <input type="text" class="form-control" v-model="selectedProduct.stock"  readonly>
+            <input type="number" class="form-control" v-model="selectedProduct.stock">
           </div>
         </div>
         <div class="row mb-3">
           <div class="col-md-6">
             <label class="form-label">Barcode</label>
-            <input type="text" class="form-control" v-model="selectedProduct.barcode" readonly>
+            <input type="text" class="form-control" v-model="selectedProduct.barcode">
           </div>
           <div class="col-md-6">
             <label class="form-label">Status</label>
-            <input type="text" class="form-control" v-model="selectedProduct.status" readonly>
+            <select class="form-select" v-model="selectedProduct.status">
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
           </div>
         </div>
         <div class="mb-3">
           <label class="form-label">Description</label>
-          <textarea class="form-control" v-model="selectedProduct.description" rows="4" readonly></textarea>
+          <textarea class="form-control" v-model="selectedProduct.description" rows="4"></textarea>
         </div>
       </div>
       <div class="modal-footer">
@@ -297,23 +300,30 @@ const viewProduct = (product) => {
 };
 
 
+
 const openEditProductModal = (product) => {
-  selectedProduct.value = { ...product }; // Copier les détails du produit sélectionné
+  selectedProduct.value = { ...product }; // Charger le produit sélectionné
   editProductModal.value = new Modal(document.getElementById('editProductModal'));
   editProductModal.value.show();
-};
-const editProduct = () => {
-  const index = products.value.findIndex(product => product.id === selectedProduct.value.id);
-  if (index !== -1) {
-    products.value[index] = { ...selectedProduct.value };
-    closeEditProductModal();
-  }
 };
 
 const closeEditProductModal = () => {
   editProductModal.value.hide();
 };
 
+// Fonction pour confirmer l'édition
+const editProduct = () => {
+  // Rechercher l'index du produit à modifier
+  const index = products.value.findIndex(p => p.id === selectedProduct.value.id);
+  
+  // Mettre à jour le produit dans la liste
+  if (index !== -1) {
+    products.value[index] = { ...selectedProduct.value };
+  }
+  
+  // Fermer le modal
+  closeEditProductModal();
+};
 // Supprimer un produit
 const confirmDeleteProduct = (productId) => {
   if (confirm('Are you sure you want to delete this  product?')) {
