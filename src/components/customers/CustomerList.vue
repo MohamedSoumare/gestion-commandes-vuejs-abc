@@ -244,12 +244,13 @@ const closeViewCustomerModal = () => {
 <style scoped>
   .custom-margin-top {
     margin-top: 20px;
-    margin-left: 20px;
+ 
   }
 
 .container {
-    padding: 20px;
-    width: 85%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
   }
   
   .table {

@@ -340,10 +340,12 @@ const deleteProduct = (productId) => {
 
 <style scoped>
 .custom-margin-top {
-  margin-top: 80px; 
-  margin-left: 25px;
+  margin-top: 20px; 
+
 }
 .container{
-  width: 85%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
 }
 </style>
