@@ -50,9 +50,16 @@
           <tbody>
             <tr v-for="(detail, index) in orderDetails" :key="index">
               <td>
-                <select class="form-select" v-model="detail.product">
-                  <option v-for="product in products" :value="product">{{ product }}</option>
-                </select>
+                <select
+                class="form-select"
+                v-model="product"
+                aria-label="Default select"
+              >
+                <option selected>{{ detail.product }}</option>
+                <option value="1">Processing</option>
+                <option value="2">Shipped</option>
+                <option value="3">Delivered</option>
+              </select>
               </td>
               <td>
                 <input type="number" class="form-control" v-model="detail.quantity" />
