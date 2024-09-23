@@ -1,10 +1,11 @@
 <template>
     <div class="container">
+        <h1 class="mt-3">Create Order</h1>
       <form class="row g-3" @submit.prevent="submitOrder">
         <div class="btn-right-action mt-5 mb-4 d-flex justify-content-end margin-btn">
           <RouterLink
             type="button"
-            class="btn btn-secondary mx-4"
+            class="btn btn-secondary mx-4"  
             :to="{ name: 'orders' }"
           >
             Return to Orders List
@@ -39,7 +40,7 @@
         </div>
       </form>
   
-      <div class="row mt-5 mx-1">
+      <div class="row mt-3 mx-1">
         <h2 class="mx-0">Order Details</h2>
         <table class="table table-bordered">
           <thead>
@@ -132,12 +133,13 @@
   <style scoped>
   .container {
     padding: 50px;
+    width: 85%;
   }
   .table {
     width: 100%;
   }
   .table th, .table td {
-    padding: 15px;
+    padding: 5px;
   }
   </style>
   

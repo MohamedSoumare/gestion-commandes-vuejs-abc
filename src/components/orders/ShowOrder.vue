@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+      <h1 class="mt-5">Show order</h1>
       <form class="row g-3" @submit.prevent="submitOrder">
         <div class="btn-right-action mt-5 mb-4 d-flex justify-content-end margin-btn">
           <RouterLink type="button" class="btn btn-secondary mx-4" :to="{ name: 'orders' }">
@@ -35,7 +36,7 @@
         </div>
       </form>
   
-      <div class="row mt-5 mx-1">
+      <div class="row mt-3 mx-1">
         <h2 class="mx-0">Order Details</h2>
         <table class="table table-bordered">
           <thead>
@@ -93,7 +94,11 @@
   
   // Function to remove an order detail
   function removeDetail(index) {
-    orderDetails.value.splice(index, 1);
+    if (orderDetails.value.length > 1) {
+      orderDetails.value.splice(index, 1);
+    } else {
+      alert("You cannot delete the last detail.");
+    }
   }
   
   const router = useRouter();
@@ -108,6 +113,10 @@
       status: status.value,
       details: orderDetails.value
     };
+
+
+   
+    
   
     // Here you can handle the new order data (e.g., send it to the server)
     console.log('Order submitted:', newOrder);
@@ -119,15 +128,16 @@
   
   <style scoped>
   .container {
-    padding: 50px;
-    width: 85%;
+    max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
   }
   .table {
     width: 100%;
   }
   .table th,
   .table td {
-    padding: 10px;
+    padding: 5px;
   }
   </style>
   

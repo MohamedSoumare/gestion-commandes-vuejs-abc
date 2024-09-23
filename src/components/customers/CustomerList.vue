@@ -153,7 +153,7 @@ import { Modal } from 'bootstrap';
 
 // Liste des clients
 const customers = ref([
-{ id: 1, name: 'John Doe', address: '123 Main St, NY', email: 'john@example.com', phone: '123-456-7890' },
+    { id: 1, name: 'John Doe', address: '123 Main St, NY', email: 'john@example.com', phone: '123-456-7890' },
     { id: 2, name: 'Jane Smith', address: '456 Oak St, CA', email: 'jane@example.com', phone: '098-765-4321' },
     { id: 3, name: 'Alice Martin', address: '789 Pine St, IL', email: 'alice@example.com', phone: '234-567-8901' },
     { id: 4, name: 'David Brown', address: '101 Maple Ave, TX', email: 'david@example.com', phone: '345-678-9012' },
@@ -166,12 +166,9 @@ const newCustomer = ref({
   email: '',
   phone: '',
   address: '',
-  registeredDate: new Date().toISOString().split('T')[0],
+  registeredDate: new Date().toISOString().split('   ')[0],
   status: 'Active',
 });
-
-// Client sélectionné pour affichage ou modification
-const selectedCustomer = ref({});
 
 // Fonctions pour les Modals et la gestion des clients
 const openAddCustomerModal = () => {
@@ -200,6 +197,11 @@ const resetNewCustomer = () => {
     status: 'Active',
   };
 };
+
+
+
+// Client sélectionné pour affichage ou modification
+const selectedCustomer = ref({});
 
 const openEditCustomerModal = (customer) => {
   selectedCustomer.value = { ...customer };

@@ -1,23 +1,15 @@
 <template>
-    <div class="container-fluid mt-3">
-      <h1 class="mb-4 custom-margin-top" custom-margin-top>Edit Order {{ orderId }}</h1>
+    <div class="container mt-3">
+      <h1 class="mt-5">Edit Order</h1>
       
       <form class="row g-3">
-        <!-- Boutons d'action -->
         <div class="btn-right-action mt-4 mb-4 d-flex justify-content-end">
-          <RouterLink
-            type="button"
-            class="btn btn-secondary mx-4"
-            :to="{ name: 'orders' }"
-          >
-          Return to Orders List
+          <RouterLink type="button" class="btn btn-secondary mx-4" :to="{ name: 'orders' }">
+            Return to Orders List
           </RouterLink>
-          <button type="button" class="btn btn-primary" @click="submitEdit">
-            Submit
-          </button>
+          <button type="button" class="btn btn-primary" @click="submitEdit">Submit</button>
         </div>
-        
-        <!-- Détails de la commande à modifier -->
+  
         <div class="col-md-6">
           <label for="date" class="form-label">Date</label>
           <input type="date" v-model="order.date" class="form-control" id="date" />
@@ -44,23 +36,22 @@
         </div>
       </form>
   
-      <!-- Détails des produits de la commande -->
-      <div class="row mt-5 mx-1">
-        <h2 class="mx-0">Order Details</h2>
+      <div class="row mt-3 mx-1">
+        <h2>Order Details</h2>
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col">Product</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Price</th>
-              <th scope="col">Actions</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(detail, index) in orderDetails" :key="index">
               <td>
-                <select class="form-select" v-model="detail.product" aria-label="Product select">
-                  <option v-for="product in products" :value="product" :key="product">{{ product }}</option>
+                <select class="form-select" v-model="detail.product">
+                  <option v-for="product in products" :value="product">{{ product }}</option>
                 </select>
               </td>
               <td>
@@ -88,66 +79,54 @@
   import { ref, onMounted } from 'vue';
   import { useRoute } from 'vue-router';
   
-  // Accéder à l'ID de la commande à partir de l'URL
   const route = useRoute();
-  const orderId = ref(route.params.id); 
-
+  const orderId = ref(route.params.id);
+  
   const order = ref({
     date: '',
     deliveryAddress: '',
     customerName: '',
     trackNumber: '',
-    status: 'Processing'
+    status: 'Processing',
   });
   
-  const orderDetails = ref([
-    { product: 'Product 1', quantity: 1, price: 10 },
-  ]);
+  const orderDetails = ref([{ product: 'Product 1', quantity: 1, price: 10 }]);
   
-  const products = ref(['Product 1', 'Product 2', 'Product 3']); 
-
+  const products = ref(['Product 1', 'Product 2', 'Product 3']);
+  
   onMounted(() => {
-   
     order.value = {
       date: '2024-09-15',
-      deliveryAddress: '123 Main St, Springfield',
+      deliveryAddress: '123 Main St',
       customerName: 'John Doe',
       trackNumber: 'TRK123456789',
-      status: 'Processing'
+      status: 'Processing',
     };
   });
   
-  // Soumettre les modifications de la commande
   function submitEdit() {
-    
     alert('Order updated!');
   }
   
-  // Ajouter un nouveau détail de commande
   function addDetail() {
     orderDetails.value.push({ product: '', quantity: 1, price: 0 });
   }
   
-  // Supprimer un détail de commande
   function removeDetail(index) {
-    orderDetails.value.splice(index, 1);
+    if (orderDetails.value.length > 1) {
+      orderDetails.value.splice(index, 1);
+    } else {
+      alert("You cannot delete the last detail.");
+    }
   }
   </script>
   
   <style scoped>
-  /* Ajouter des styles pour ajuster l'affichage */
-  .container-fluid {
-    padding: 20px;
-   width: 85%;
-    
+  .container {
+    max-width: 1250px;
+  margin: 0 auto;
+  padding: 20px;
   }
   
-
-  .custom-margin-top {
-    margin-top: 30px;
-    
-  }
-
-
   </style>
   

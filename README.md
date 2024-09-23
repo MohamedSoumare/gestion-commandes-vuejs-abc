@@ -43,7 +43,9 @@ Avant de commencer, assurez-vous d'avoir installé :
 │   │   │   └── CustomerList.vue
 │   │   ├── orders/
 │   │   │   └── OrderList.vue
-│   │   └── └── AddOrder.vue
+│   │   └── └── AddOrder.vue  
+│   │   └── └── ShowOrder.vue  
+│   │   └── └── EditOrder.vue  
 │   │   └── products/
 │   │       └── ProductList.vue
 │   ├── router/

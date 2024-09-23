@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top mb-4">
-    <div class="container ">
+    <div class="container">
       <div id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item mx-4">
@@ -25,41 +25,33 @@
 </template>
 
 <style scoped>
-
-
 .navbar-nav {
   display: flex;
   padding: 0;
   list-style: none;
-  
 }
 
-
-
-/* Style for the navbar links */
 .nav-link {
   text-decoration: none;
-  color: #4b0082; /* Default Indigo color */
-  transition: color 0.3s ease; /* Smooth color transition */
+  color: #4b0082;
+  transition: color 0.3s ease;
 }
 
-/* Spacing between icon and text */
 .nav-link i {
   margin-right: 8px;
 }
 
-/* Change color on hover */
 .nav-link:hover {
-    color: #0000FF; /* Blue on hover */
-  }
-  
-  /* Active link color */
-  .nav-link.active {
-    color: #0000FF; /* Blue when active */
-    font-weight: bold;
-  }
+  color: #0000FF;
+}
+
+.nav-link.active {
+  color: #0000FF;
+  font-weight: bold;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
 </style>
-
-<script setup>
-
-</script>  
