@@ -3,13 +3,13 @@
         <h1 class="mt-3">Create Order</h1>
       <form class="row g-3" @submit.prevent="submitOrder">
         <div class="btn-right-action mt-5 mb-4 d-flex justify-content-end margin-btn">
-          <RouterLink
+          <router-link
             type="button"
             class="btn btn-secondary mx-4"  
             :to="{ name: 'orders' }"
           >
             Return to Orders List
-          </RouterLink>
+          </router-link>
           <button type="submit" class="btn btn-primary">Submit</button>
         </div>
   
@@ -54,10 +54,10 @@
           <tbody>
             <tr v-for="(detail, index) in orderDetails" :key="index">
               <td>
-                <input type="text" class="form-control" v-model="detail.product" />
+                <input type="text" class="form-control" v-model="detail.product"   placeholder="Enter product name" />
               </td>
               <td>
-                <input type="number" class="form-control" v-model="detail.quantity" />
+                <input type="number" class="form-control" v-model="detail.quantity"  placeholder="Enter quantity " min="1" />
               </td>
               <td>
                 <input type="number" class="form-control" v-model="detail.price" />
@@ -112,7 +112,7 @@
   const router = useRouter();
   
   // Function to submit the form
-  function submitOrder() {
+function submitOrder() {
     const newOrder = {
       date: date.value,
       deliveryAddress: deliveryAddress.value,
@@ -130,16 +130,20 @@
   }
   </script>
   
-  <style scoped>
-  .container {
+<style scoped>
+  
+.container {
     padding: 50px;
     width: 85%;
   }
-  .table {
+
+.table {
     width: 100%;
   }
-  .table th, .table td {
+
+.table th, .table td {
     padding: 5px;
   }
+
   </style>
   

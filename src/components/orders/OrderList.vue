@@ -2,9 +2,9 @@
     <div class="container mt-5">
       <h1 class="mb-4 custom-margin-top">List of Orders</h1>
       <div class="d-flex justify-content-end mb-3">
-        <RouterLink type="button" class="btn btn-primary" :to="{ name: 'create' }">
+        <router-link type="button" class="btn btn-primary" :to="{ name: 'create' }">
           Add New Order
-        </RouterLink>
+        </router-link>
       </div>
       <table class="table table-striped table-hover table-bordered mt-3">
         <thead class="table-light">
@@ -25,15 +25,15 @@
             <td>{{ order.trackNumber }}</td>
             <td>{{ order.status }}</td>
             <td class="text-center">
-              <RouterLink
+              <router-link
                 class="btn btn-outline-info btn-sm me-2"
                 :to="{ name: 'view' }"
               >
                 <i class="fas fa-eye"></i>
-              </RouterLink>
-              <RouterLink :to="{ name: 'edit', params: { id: index } }" class="btn btn-outline-warning btn-sm me-2">
+              </router-link>
+              <router-link :to="{ name: 'edit', params: { id: index } }" class="btn btn-outline-warning btn-sm me-2">
                 <i class="fas fa-edit"></i>
-              </RouterLink>
+              </router-link>
               <button class="btn btn-outline-danger btn-sm" @click="confirmDeleteOrder(index)">
                 <i class="fas fa-trash"></i>
               </button>

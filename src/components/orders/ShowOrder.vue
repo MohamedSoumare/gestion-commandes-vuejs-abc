@@ -44,7 +44,7 @@
               <th scope="col">Product</th>
               <th scope="col">Quantity</th>
               <th scope="col">Price</th>
-              <th scope="col">Actions</th>
+         
             </tr>
           </thead>
           <tbody>
@@ -58,14 +58,9 @@
               <td>
                 <input type="number" class="form-control" v-model="detail.price" disabled/>
               </td>
-              <td>
-                <button @click="removeDetail(index)" class="btn btn-danger">Remove</button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="4">
-                <button @click="addDetail" class="btn btn-success">Add New Detail</button>
-              </td>
+              
+        
+    
             </tr>
           </tbody>
         </table>
